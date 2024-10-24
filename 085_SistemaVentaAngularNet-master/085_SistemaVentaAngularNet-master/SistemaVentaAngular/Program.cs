@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using SistemaVentaAngular.Extensions;
 using SistemaVentaAngular.Models;
 using SistemaVentaAngular.Repository.Contratos;
 using SistemaVentaAngular.Repository.Implementacion;
@@ -6,6 +7,9 @@ using SistemaVentaAngular.Utilidades;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Agregar Swagger
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 // Agregar servicios al contenedor.
 builder.Services.AddCors(options =>
@@ -17,6 +21,9 @@ builder.Services.AddCors(options =>
                .AllowAnyMethod(); // Permite todos los métodos HTTP
     });
 });
+
+
+
 
 
 // Add services to the container.
@@ -38,6 +45,17 @@ builder.Services.AddScoped<IVentaRepositorio, VentaRepositorio>();
 builder.Services.AddScoped<IDashBoardRepositorio, DashBoardRepositorio>();
 
 var app = builder.Build();
+
+
+// Configurar el middleware de Swagger
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+    });
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

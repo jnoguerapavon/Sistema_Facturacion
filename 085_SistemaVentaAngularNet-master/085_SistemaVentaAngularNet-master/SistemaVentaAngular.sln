@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SistemaVentaAngular", "SistemaVentaAngular\SistemaVentaAngular.csproj", "{B04CABB2-39CE-402F-8E5C-2974620CF791}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilidad", "Utilidad\Utilidad.csproj", "{54E8A081-CA8E-4F42-B77B-486C66A82550}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utilidad", "Utilidad\Utilidad.csproj", "{54E8A081-CA8E-4F42-B77B-486C66A82550}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
